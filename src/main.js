@@ -110,13 +110,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }]
       });
       
-      showNotification(`Transaction sent: ${txHash} -- check your Warplet in a few minutes to see it!`);
-      
-      // Re-enable after 15 seconds
-      setTimeout(() => {
-        document.getElementById('mint-button').disabled = false;
-        document.getElementById('mint-button').textContent = 'Mint NFT';
-      }, 15000);
+      showNotification(`Check your Warplet in a few minutes to see it!`);
+
+      document.getElementById('mint-button').disabled = false;
+      document.getElementById('mint-button').textContent = 'Mint NFT';
     } catch (error) {
       console.error('Error minting:', error);
       showNotification(`Minting failed: ${error.message}`);
