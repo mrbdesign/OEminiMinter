@@ -1,6 +1,6 @@
 # Mintable Frame
 
-A simple Farcaster Frame for minting NFTs with a single click.
+A minimalist Farcaster Frame for minting NFTs with a single click.
 
 ## Setup
 
@@ -48,3 +48,7 @@ You can customize the frame by:
 - The mint function requires sending 0.0025 ETH alongside the transaction
 - The contract is configured to work on Base Mainnet (chainId 8453)
 - Users will be prompted to switch networks if they're not on Base
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
