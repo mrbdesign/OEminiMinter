@@ -3,9 +3,7 @@ import * as frame from '@farcaster/frame-sdk'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <a href="#" id="logo-link">
-      <img src="https://images.kasra.codes/smoothie_cup.jpeg" class="featured-image" alt="Smoothie Cup" />
-    </a>
+    <img src="https://images.kasra.codes/smoothie_cup.jpeg" class="featured-image" alt="Smoothie Cup" />
     <div class="card">
       <button id="mint-button" class="gold-button" type="button">Mint NFT</button>
     </div>
@@ -41,18 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (error) {
     console.error('Error initializing:', error);
   }
-  
-  // Handle logo click
-  document.getElementById('logo-link').addEventListener('click', async (e) => {
-    e.preventDefault();
-    const targetText = 'Check out this awesome Mintable Frame!';
-    const targetURL = window.location.href;
-    
-    const finalUrl = `https://warpcast.com/~/compose?text=${encodeURIComponent(targetText)}&embeds[]=${encodeURIComponent(targetURL)}`;
-    
-    await frame.sdk.actions.openUrl(finalUrl);
-  });
-  
+
   // Automatically request wallet access when needed
   async function connectWallet() {
     try {
