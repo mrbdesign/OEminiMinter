@@ -1,0 +1,22 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjUxNDIsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhkMUIxM0EyNTBCMTk3ZDI0ZGIzQkI5ODFCZUU3NGY0YjA0RTMxRUI0In0",
+    "payload": "eyJkb21haW4iOiJtaW5pLW1pbnRlci1maXZlLnZlcmNlbC5hcHAifQ",
+    "signature": "MHhkZTVkZTUzMDFiZjUyOWFkZDBhOWU4ZDMxOGNmMTI5YzY4MTJkNGU2NDYzMGE4NjViMmJjMWUwYTBiZWY3YjFmMjA2MjRkZjZhOGNhYTRlYTc2YjhmNDc0ZjhkNTljYWJmYTNmMTc3MjI5M2E2NThjNTU0YWMxOTRjMDBmNTUwMzFj"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Go HIGHER Mini Minter",
+    "iconUrl": "https://o-emini-minter.vercel.app/images/icon.png",
+    "splashImageUrl": "https://o-emini-minter.vercel.app/images/GO-HIGHER.gif",
+    "splashBackgroundColor": "#ffffff",
+    "homeUrl": "https://o-emini-minter.vercel.app",
+    "imageUrl": "https://o-emini-minter.vercel.app/images/GO-HIGHER.gif",
+    "screenshotUrls": [
+      "https://o-emini-minter.vercel.app/images/GO-HIGHER.gif"
+    ],
+    "tags": ["nft", "mint", "miniapp", "$HIGHER", "erc1155"],
+    "primaryCategory": "art-creativity",
+    "buttonTitle": "Launch Go HIGHER Mini Minter"
+  }
+}
