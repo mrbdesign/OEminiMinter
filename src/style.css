@@ -35,7 +35,6 @@ h1 {
   line-height: 1.1;
 }
 
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -46,7 +45,7 @@ h1 {
 .featured-image {
   max-width: 400px;
   height: auto;
-  border: 4px solid gold;
+  border: 4px solid black; /* Changed from gold to black */
   border-radius: 8px;
   margin-bottom: 20px;
 }
@@ -68,7 +67,7 @@ h1 {
   margin-top: 10px;
   padding: 0.75em;
   background-color: rgba(255, 215, 0, 0.25);
-  border: 1px solid gold;
+  border: 1px solid black; /* Changed from gold to black */
   color: #000000;
   border-radius: 8px;
   min-height: 20px;
@@ -105,15 +104,15 @@ button:disabled {
 }
 
 .gold-button {
-  background-color: gold;
-  color: #000;
+  background-color: black; /* Changed from gold to black */
+  color: white; /* Changed from #000 to white */
   font-weight: 600;
-  border: 2px solid #b8860b;
-  box-shadow: 0 4px 6px rgba(184, 134, 11, 0.3);
+  border: 2px solid black; /* Changed from #b8860b to black */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adjusted shadow to match black theme */
 }
 
 .gold-button:hover {
-  background-color: #f0c800;
-  border-color: #b8860b;
-  box-shadow: 0 6px 8px rgba(184, 134, 11, 0.5);
+  background-color: #333333; /* Darker shade for hover effect */
+  border-color: black;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* Adjusted shadow to match black theme */
 }

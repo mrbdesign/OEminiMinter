@@ -1,54 +1,62 @@
-# Mintable Frame
-
+Mintable Frame
 A minimalist Farcaster Frame for minting NFTs with a single click.
 
-## Setup
+This project is a customized fork of jc4p/mintable-frame. Huge thanks to the original author for the clean foundation!
 
-1. Clone this repository
-2. Install dependencies with `npm install` or `bun install`
-3. Start the development server with `npm run dev` or `bun run dev`
+Setup
+Clone this repository
 
-## Deployment
+Install dependencies with npm install or bun install
 
+Start the development server with npm run dev or bun run dev
+
+Deployment
 To make your Frame accessible to users, you need to deploy it to a public URL:
 
-1. For development and testing, the Frame currently uses `http://localhost:5173` in the Frame metadata
-2. For production, deploy the app to a hosting service like Vercel, Netlify, or GitHub Pages
-3. Update the Frame URL in `index.html` by changing this part of the `fc:frame` meta tag:
-   ```html
-   "url":"http://localhost:5173"
-   ```
-   to your production URL, for example:
-   ```html
-   "url":"https://your-mintable-frame.vercel.app"
-   ```
-4. Also update the `imageUrl` in the same meta tag to use an image hosted on your production domain or a reliable image hosting service
+For development and testing, the Frame currently uses http://localhost:5173 in the Frame metadata.
 
-## Contract Setup
+For production, deploy the app to a hosting service like Vercel, Netlify, or GitHub Pages.
 
+Update the Frame URL in index.html by changing this part of the fc:frame meta tag:
+
+xml
+"url":"http://localhost:5173"
+to your production URL, for example:
+
+xml
+"url":"https://your-mintable-frame.vercel.app"
+Also update the imageUrl in the same meta tag to use an image hosted on your production domain or a reliable image hosting service, e.g.:
+
+xml
+"imageUrl":"https://your-mintable-frame.vercel.app/images/GO-HIGHER.gif"
+Contract Setup
 This frame requires a compatible NFT contract to work with. Follow these steps:
 
-1. Follow the instructions in the [mintable-nft-contract](https://github.com/jc4p/mintable-nft-contract) repository to deploy your NFT contract
-2. After deploying your contract, update the `contractAddress` in `src/main.js` (around line 96) with your actual contract address
+Follow the instructions in the mintable-nft-contract repository to deploy your NFT contract.
 
-```javascript
-// Define the contract address - replace with your actual address from mintable-nft-contract
-const contractAddress = '0x1234567890123456789012345678901234567890';
-```
+After deploying your contract, update the contractAddress in src/main.js with your actual contract address:
 
-## Customization
-
+javascript
+const contractAddress = '0xYourContractAddressHere';
+Customization
 You can customize the frame by:
-- Changing the image URL in the HTML (currently using https://images.kasra.codes/smoothie_cup.jpeg)
-- Modifying the title text (currently "Mint This")
-- Adjusting colors and styling in style.css
 
-## Important Notes
+Changing the preview image in the HTML (now using /images/GO-HIGHER.gif)
 
-- The mint function requires sending 0.0025 ETH alongside the transaction
-- The contract is configured to work on Base Mainnet (chainId 8453)
-- Users will be prompted to switch networks if they're not on Base
+Modifying the title text (currently "Mint NFT")
 
-## License
+Adjusting colors and styling in style.css
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Important Notes
+The mint function in this fork uses the $HIGHER ERC20 token for payment instead of ETH.
+
+The contract is configured to work on Base Mainnet (chainId 8453).
+
+Users will be prompted to switch networks if they're not on Base.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Shoutout:
+Original minimalist frame by jc4p.
+Customization and $HIGHER integration by [your name or org].
