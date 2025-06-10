@@ -52,15 +52,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   document.getElementById('mint-button').addEventListener('click', async () => {
-    const contractAddress = '0x93c452a1Fe34280239a9eD26C320FD50F6772546'
+    const contractAddress = '0x93c452a1Fe34280239a9eD26C320FD50F6772546' // Your ERC-1155 contract
     const mintAmount = 1
-    const pricePerMint = ethers.parseUnits('0.00069', 18) // 0.00069 ETH in wei
 
     const mintAbi = [
       'function mint(address to, uint256 id, uint256 amount, bytes data) public payable',
     ]
 
-    const tokenId = 1
+    const tokenId = 1 // Adjust if needed
 
     const mintButton = document.getElementById('mint-button')
     mintButton.disabled = true
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return
       }
 
-      // Mint NFT with ETH payment
+      // Mint NFT with 0 ETH payment (free mint)
       const mintInterface = new ethers.Interface(mintAbi)
       const mintData = mintInterface.encodeFunctionData('mint', [
         walletAddress,
@@ -89,8 +88,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           {
             from: walletAddress,
             to: contractAddress,
-            data: mintData,
-            value: ethers.toBeHex(pricePerMint), // Pass as hex string!
+            data: mintData
+            // No value field! This means 0 ETH is sent.
           },
         ],
       })
