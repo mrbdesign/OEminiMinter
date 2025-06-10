@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('mint-button').addEventListener('click', async () => {
     const contractAddress = '0x93c452a1Fe34280239a9eD26C320FD50F6772546' // Your ERC-1155 contract
     const mintAmount = 1
-    const pricePerMint = ethers.parseUnits('0.00069', 18) // 0.00069 ETH per mint
+    const pricePerMint = ethers.parseUnits('0.00069', 18) // 0.00069 ETH in wei
 
     const mintAbi = [
       'function mint(address to, uint256 id, uint256 amount, bytes data) public payable',
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             from: walletAddress,
             to: contractAddress,
             data: mintData,
-            value: pricePerMint.toString(), // Send 0.00069 ETH
+            value: pricePerMint.toString(), // Correct: string in wei
           },
         ],
       })
