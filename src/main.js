@@ -53,22 +53,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.getElementById('mint-button').addEventListener('click', async () => {
     const contractAddress = '0x93c452a1Fe34280239a9eD26C320FD50F6772546' // Your ERC-1155 contract
-    const erc20Address = '0x0578d8A44db98B23BF096A382e016e29a5Ce0ffe' // $HIGHER token
     const mintAmount = 1
-    const pricePerMint = ethers.parseUnits('1', 18) // 1 $HIGHER per mint
+    const pricePerMint = ethers.parseUnits('0.00069', 18) // 0.00069 ETH per mint
 
-    const erc20Abi = [
-      'function approve(address spender, uint256 amount) public returns (bool)',
-    ]
     const mintAbi = [
-      'function mint(address to, uint256 id, uint256 amount, bytes data) public',
+      'function mint(address to, uint256 id, uint256 amount, bytes data) public payable',
     ]
 
     const tokenId = 1 // Adjust if needed
 
     const mintButton = document.getElementById('mint-button')
     mintButton.disabled = true
-    mintButton.textContent = 'Preparing...'
+    mintButton.textContent = 'Minting...'
 
     try {
       const walletAddress = await connectWallet()
@@ -79,26 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return
       }
 
-      // Approve $HIGHER transfer
-      mintButton.textContent = 'Approving $HIGHER...'
-      const erc20Interface = new ethers.Interface(erc20Abi)
-      const approveData = erc20Interface.encodeFunctionData('approve', [
-        contractAddress,
-        pricePerMint,
-      ])
-      await frame.sdk.wallet.ethProvider.request({
-        method: 'eth_sendTransaction',
-        params: [
-          {
-            from: walletAddress,
-            to: erc20Address,
-            data: approveData,
-          },
-        ],
-      })
-
-      // Mint NFT
-      mintButton.textContent = 'Minting...'
+      // Mint NFT with ETH payment
       const mintInterface = new ethers.Interface(mintAbi)
       const mintData = mintInterface.encodeFunctionData('mint', [
         walletAddress,
@@ -113,6 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             from: walletAddress,
             to: contractAddress,
             data: mintData,
+            value: pricePerMint.toString(), // Send 0.00069 ETH
           },
         ],
       })
